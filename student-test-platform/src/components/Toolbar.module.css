@@ -1,0 +1,82 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 16px;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+  gap: 4px;
+  z-index: 10;
+}
+
+.toolGroup {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.toolBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 8px;
+  background: transparent;
+  color: var(--text-tertiary);
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 510;
+  font-family: var(--font-sans);
+  font-feature-settings: 'cv01', 'ss03';
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  white-space: nowrap;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.toolBtn:hover {
+  background: rgba(255,255,255,0.05);
+  color: var(--text-secondary);
+  border-color: var(--border-subtle);
+}
+
+.toolBtn.active {
+  background: rgba(113, 112, 255, 0.12);
+  color: var(--accent);
+  border-color: rgba(113, 112, 255, 0.2);
+}
+
+.toolBtn.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.toolLabel {
+  display: inline;
+  font-size: 11px;
+  font-weight: 510;
+  color: inherit;
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border-subtle);
+  margin: 0 6px;
+  flex-shrink: 0;
+}
+
+.zoomDisplay {
+  font-size: 12px;
+  font-weight: 510;
+  color: var(--text-muted);
+  padding: 0 6px;
+  min-width: 40px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.spacer {
+  flex: 1;
+}

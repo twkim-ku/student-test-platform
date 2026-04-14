@@ -1,0 +1,136 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+  padding: 0 20px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border-standard);
+  flex-shrink: 0;
+  gap: 16px;
+  z-index: 20;
+}
+
+/* Left */
+.testInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.testMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  background: rgba(94, 106, 210, 0.15);
+  color: var(--accent);
+  border: 1px solid rgba(113, 112, 255, 0.2);
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 510;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.sectionBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  background: rgba(255,255,255,0.04);
+  color: var(--text-tertiary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 510;
+  white-space: nowrap;
+}
+
+.testName {
+  font-size: 13px;
+  font-weight: 510;
+  color: var(--text-secondary);
+  letter-spacing: -0.13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Center */
+.timerBlock {
+  flex-shrink: 0;
+}
+
+.timerInner {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border-standard);
+  border-radius: 6px;
+  color: var(--text-tertiary);
+}
+
+.timerLabel {
+  font-size: 11px;
+  font-weight: 510;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.timerValue {
+  font-size: 14px;
+  font-weight: 590;
+  color: var(--text-primary);
+  letter-spacing: -0.13px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Right */
+.studentInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.studentDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.studentName {
+  font-size: 13px;
+  font-weight: 510;
+  color: var(--text-primary);
+  letter-spacing: -0.13px;
+}
+
+.studentId {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-standard);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}

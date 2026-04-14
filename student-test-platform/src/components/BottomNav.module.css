@@ -1,0 +1,200 @@
+.bottomNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  padding: 0 16px;
+  background: var(--bg-panel);
+  border-top: 1px solid var(--border-standard);
+  flex-shrink: 0;
+  gap: 16px;
+  z-index: 20;
+}
+
+/* Left */
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.itemMapToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: 5px;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-weight: 510;
+  font-family: var(--font-sans);
+  font-feature-settings: 'cv01', 'ss03';
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background var(--transition), color var(--transition);
+}
+
+.itemMapToggle:hover {
+  background: rgba(255,255,255,0.06);
+  color: var(--text-secondary);
+}
+
+.itemStrip {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  overflow: hidden;
+}
+
+.itemBtn {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 590;
+  font-family: var(--font-sans);
+  font-feature-settings: 'cv01', 'ss03';
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all var(--transition);
+  line-height: 1;
+}
+
+/* Status variants */
+.status_unanswered {
+  background: rgba(255,255,255,0.03);
+  border-color: var(--border-subtle);
+  color: var(--text-muted);
+}
+.status_unanswered:hover {
+  background: rgba(255,255,255,0.07);
+  color: var(--text-tertiary);
+}
+
+.status_answered {
+  background: rgba(39, 166, 68, 0.12);
+  border-color: rgba(39, 166, 68, 0.25);
+  color: #4ade80;
+}
+.status_answered:hover {
+  background: rgba(39, 166, 68, 0.2);
+}
+
+.status_flagged {
+  background: rgba(229, 160, 13, 0.12);
+  border-color: rgba(229, 160, 13, 0.25);
+  color: #fbbf24;
+}
+.status_flagged:hover {
+  background: rgba(229, 160, 13, 0.2);
+}
+
+.status_current {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.moreItems {
+  font-size: 11px;
+  font-weight: 510;
+  color: var(--text-muted);
+  padding: 0 4px;
+  white-space: nowrap;
+}
+
+.progressSummary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 8px;
+  border-left: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.progressItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 510;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Right */
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.navBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: 5px;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-weight: 510;
+  font-family: var(--font-sans);
+  font-feature-settings: 'cv01', 'ss03';
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition);
+}
+
+.navBtn:hover {
+  background: rgba(255,255,255,0.05);
+  color: var(--text-secondary);
+  border-color: var(--border-standard);
+}
+
+.navBtnPrimary {
+  background: rgba(94, 106, 210, 0.15);
+  border-color: rgba(113, 112, 255, 0.25);
+  color: var(--accent);
+}
+.navBtnPrimary:hover {
+  background: rgba(94, 106, 210, 0.25);
+  border-color: rgba(113, 112, 255, 0.4);
+  color: var(--accent-hover);
+}
+
+.navBtnDanger {
+  background: rgba(229, 72, 77, 0.08);
+  border-color: rgba(229, 72, 77, 0.2);
+  color: #f87171;
+}
+.navBtnDanger:hover {
+  background: rgba(229, 72, 77, 0.15);
+  border-color: rgba(229, 72, 77, 0.35);
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border-subtle);
+  margin: 0 4px;
+  flex-shrink: 0;
+}
