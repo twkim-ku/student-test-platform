@@ -4,6 +4,7 @@ import Toolbar from './components/Toolbar';
 import SplitPanel from './components/SplitPanel';
 import PassagePanel from './components/PassagePanel';
 import QuestionPanel from './components/QuestionPanel';
+import StackedView from './components/StackedView';
 import BottomNav from './components/BottomNav';
 import './App.css';
 
@@ -38,10 +39,10 @@ export default function App() {
         studentId="ST-29847"
       />
       <Toolbar isDark={isDark} onToggleTheme={() => setIsDark(d => !d)} />
-      <SplitPanel
-        left={<PassagePanel />}
-        right={<QuestionPanel />}
-      />
+      {currentItem === 8
+        ? <StackedView />
+        : <SplitPanel left={<PassagePanel />} right={<QuestionPanel />} />
+      }
       <BottomNav
         currentItem={currentItem}
         totalItems={24}

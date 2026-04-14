@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd student-test-platform && bun install && bun run build",
+  "outputDirectory": "student-test-platform/dist",
+  "framework": null
+}

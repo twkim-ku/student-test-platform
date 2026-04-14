@@ -1,0 +1,425 @@
+/* ── Outer container ───────────────────────────────────────── */
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+  background: var(--bg-canvas);
+}
+
+.container.dragging {
+  cursor: row-resize;
+  user-select: none;
+}
+
+/* ── Panes ─────────────────────────────────────────────────── */
+.topPane,
+.bottomPane {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* ── Horizontal drag handle ────────────────────────────────── */
+.handle {
+  height: 9px;
+  flex-shrink: 0;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  cursor: row-resize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition);
+  z-index: 5;
+}
+
+.handle:hover,
+.handleActive {
+  background: rgba(113, 112, 255, 0.06) !important;
+  border-color: rgba(113, 112, 255, 0.2) !important;
+}
+
+.handleDots {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  align-items: center;
+}
+
+.handleDots span {
+  display: block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  transition: background var(--transition);
+}
+
+.handle:hover .handleDots span {
+  background: rgba(113, 112, 255, 0.4);
+}
+
+/* ── Shared section header ─────────────────────────────────── */
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 24px 10px;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+  gap: 12px;
+}
+
+.sectionLabel {
+  font-size: 10px;
+  font-weight: 590;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── Instructions pane ─────────────────────────────────────── */
+.instrPanel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-panel);
+}
+
+.instrNote {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.instrContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.instrText {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  line-height: 1.65;
+  max-width: 860px;
+}
+
+/* ── Data table ────────────────────────────────────────────── */
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  font-family: var(--font-sans);
+  font-feature-settings: 'cv01', 'ss03';
+}
+
+.tableCaption {
+  font-size: 11px;
+  font-weight: 510;
+  color: var(--text-muted);
+  text-align: left;
+  padding-bottom: 8px;
+  letter-spacing: -0.05px;
+}
+
+.thIndicator,
+.thValue {
+  padding: 8px 14px;
+  font-size: 11px;
+  font-weight: 590;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--border-standard);
+  white-space: nowrap;
+}
+
+.thIndicator {
+  text-align: left;
+  color: var(--text-muted);
+  background: rgba(255,255,255,0.02);
+  min-width: 220px;
+}
+
+.thValue {
+  text-align: right;
+  color: var(--text-muted);
+  background: rgba(255,255,255,0.02);
+}
+
+.tdIndicator {
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+
+.tdValue {
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 510;
+  color: var(--text-primary);
+  text-align: right;
+  border-bottom: 1px solid var(--border-subtle);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.dataTable tbody tr:hover .tdIndicator,
+.dataTable tbody tr:hover .tdValue {
+  background: rgba(255,255,255,0.025);
+}
+
+.rowHighlight .tdIndicator {
+  color: var(--text-primary);
+}
+
+.rowHighlight .tdValue {
+  color: var(--accent);
+}
+
+.rowHighlight .tdIndicator,
+.rowHighlight .tdValue {
+  background: rgba(113, 112, 255, 0.04);
+}
+
+/* ── Question pane ─────────────────────────────────────────── */
+.questionPanel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-panel);
+}
+
+.qHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qCount {
+  font-size: 12px;
+  font-weight: 510;
+  color: var(--text-tertiary);
+  padding: 2px 7px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+}
+
+.qHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stdBadge {
+  font-size: 10px;
+  font-weight: 590;
+  color: var(--text-muted);
+  padding: 2px 6px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.typeBadge {
+  font-size: 10px;
+  font-weight: 590;
+  color: #f59e0b;
+  padding: 2px 6px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.22);
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+
+.questionContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 28px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.stem {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.65;
+  letter-spacing: -0.1px;
+  max-width: 860px;
+}
+
+/* ── Multi-select choices ──────────────────────────────────── */
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  max-width: 860px;
+}
+
+.choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  width: 100%;
+  padding: 11px 14px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: 7px;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-feature-settings: 'cv01', 'ss03';
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.choice:hover {
+  background: rgba(255,255,255,0.04);
+  border-color: var(--border-standard);
+}
+
+.choice.choiceSelected {
+  background: rgba(113, 112, 255, 0.07);
+  border-color: rgba(113, 112, 255, 0.28);
+}
+
+/* Square checkbox for multi-select */
+.checkbox {
+  width: 17px;
+  height: 17px;
+  border-radius: 4px;
+  border: 1.5px solid var(--border-solid-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.checkbox.checkboxSelected {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.choiceLetter {
+  font-size: 12px;
+  font-weight: 590;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  min-width: 14px;
+  margin-top: 2px;
+}
+
+.choice.choiceSelected .choiceLetter {
+  color: var(--accent);
+}
+
+.choiceText {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  letter-spacing: -0.08px;
+}
+
+.choice.choiceSelected .choiceText {
+  color: var(--text-primary);
+}
+
+/* ── Hint ──────────────────────────────────────────────────── */
+.hintRow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hintToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 510;
+  font-family: var(--font-sans);
+  font-feature-settings: 'cv01', 'ss03';
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color var(--transition);
+}
+
+.hintToggle:hover { color: var(--text-tertiary); }
+
+.hintBox {
+  padding: 10px 12px;
+  background: rgba(229, 160, 13, 0.06);
+  border: 1px solid rgba(229, 160, 13, 0.2);
+  border-radius: 6px;
+  max-width: 640px;
+}
+
+.hintBox p {
+  font-size: 13px;
+  font-weight: 400;
+  color: #c49a2a;
+  line-height: 1.55;
+  font-style: italic;
+}
+
+/* ── Status bar ────────────────────────────────────────────── */
+.statusBar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 24px;
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  flex-shrink: 0;
+}
+
+.statusDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+  flex-shrink: 0;
+}
+
+.statusDot.statusEmpty {
+  background: transparent;
+  border: 1.5px solid var(--border-solid-2);
+}
+
+.statusText {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.statusText strong {
+  font-weight: 590;
+  color: var(--text-secondary);
+}
